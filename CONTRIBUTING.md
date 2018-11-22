@@ -37,3 +37,59 @@ Define a local working directory:
 # just one and use it instead of $GOPATH here.
 working_dir=$GOPATH/src/github.com/gojvm
 ```
+
+
+### Step 3: Branch
+
+Get your local master up to date:
+
+```sh
+cd $working_dir/tidb
+git fetch upstream
+git checkout master
+
+git rebase upstream/master
+```
+
+Branch from master:
+
+```sh
+git checkout -b myfeature
+```
+
+### Step 4: Develop
+
+#### Edit the code
+
+#### Run Test
+
+### Step 5: Keep your branch in sync
+
+```sh
+# While on your myfeature branch.
+git fetch upstream
+git rebase upstream/master
+```
+
+### Step 6: Commit
+
+Commit your changes.
+
+```sh
+git commit
+```
+### Step 7: Push
+
+When ready to review (or just to establish an offsite backup or your work),
+push your branch to your fork on `github.com`:
+
+```sh
+git push -f origin myfeature
+```
+
+### Step 8: Create a pull request
+
+1. Visit your fork at https://github.com/$user/gojvm (replace `$user` obviously).
+2. Click the `Compare & pull request` button next to your `myfeature` branch.
+
+### Step 9: Get a code review
