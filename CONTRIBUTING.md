@@ -38,13 +38,38 @@ Define a local working directory:
 working_dir=$GOPATH/src/github.com/gojvm
 ```
 
+Create your clone:
+
+```sh
+mkdir -p $working_dir
+cd $working_dir
+git clone https://github.com/$user/gojvm.git
+# the following is recommended
+# or: git clone git@github.com:$user/gojvm.git
+
+cd $working_dir/tidb
+git remote add upstream https://github.com/go-jvm/gojvm.git
+# or: git remote add upstream git@github.com:go-jvm/gojvm.git
+
+# Never push to upstream master since you do not have write access.
+git remote set-url --push upstream no_push
+
+# Confirm that your remotes make sense:
+# It should look like:
+# origin    git@github.com:$(user)/gojvm.git (fetch)
+# origin    git@github.com:$(user)/gojvm.git (push)
+# upstream  https://github.com/go-jvm/gojvm.git (fetch)
+# upstream  no_push (push)
+git remote -v
+```
+
 
 ### Step 3: Branch
 
 Get your local master up to date:
 
 ```sh
-cd $working_dir/tidb
+cd $working_dir/gojvm
 git fetch upstream
 git checkout master
 
