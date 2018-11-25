@@ -47,7 +47,7 @@ git clone https://github.com/$user/gojvm.git
 # the following is recommended
 # or: git clone git@github.com:$user/gojvm.git
 
-cd $working_dir/tidb
+cd $working_dir/gojvm
 git remote add upstream https://github.com/go-jvm/gojvm.git
 # or: git remote add upstream git@github.com:go-jvm/gojvm.git
 
