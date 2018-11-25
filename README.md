@@ -5,7 +5,7 @@
 # What is gojvm ？
 The java virtual machine implemented by golang, refer to the go.jvm project, and implement the relatively complete java virtual machine according to the jvm specification.
 
-# [Contribution Guide]
+# Contribution Guide
 * [docs-en](https://github.com/go-jvm/gojvm/blob/master/CONTRIBUTING.md)
 * [docs-cn](https://github.com/go-jvm/gojvm/blob/master/CONTRIBUTING.md)
 
