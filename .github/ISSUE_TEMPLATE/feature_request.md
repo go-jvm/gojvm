@@ -25,5 +25,5 @@ Tests <!-- At least one of them must be included. -->
 
 <!-- Reviewable:start -->
 ---
-This change is [<img src="https://reviewable.io/review_button.svg" height="34" align="absmiddle" alt="Reviewable"/>](https://reviewable.io/reviews/pingcap/tidb/8401)
+This change is [<img src="https://reviewable.io/review_button.svg" height="34" align="absmiddle" alt="Reviewable"/>](https://github.com/go-jvm/gojvm)
 <!-- Reviewable:end -->
