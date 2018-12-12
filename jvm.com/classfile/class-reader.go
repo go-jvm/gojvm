@@ -45,7 +45,7 @@ func (self *ClassReader) readUint64() uint64 {
 // read uint16 type data
 func (self *ClassReader) readUint16s() []uint16 {
 	n := self.readUint16()
-	s := make([]uint16,n)
+	s := make([]uint16, n)
 
 	for i := range s {
 		s[i] = self.readUint16()
