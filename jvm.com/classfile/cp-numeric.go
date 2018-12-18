@@ -2,7 +2,7 @@ package classfile
 
 import "math"
 
-type ConstantIntegerInfo  struct {
+type ConstantIntegerInfo struct {
 	val int32
 }
 
@@ -27,7 +27,6 @@ func (self *ConstantFloatInfo) readInfo(reader *ClassReader) {
 	bytes := reader.readUint32()
 	self.val = math.Float32frombits(bytes)
 }
-
 
 func (self *ConstantLongInfo) readInfo(reader *ClassReader) {
 	bytes := reader.readUint64()

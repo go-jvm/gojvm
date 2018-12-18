@@ -1,7 +1,5 @@
 package classfile
 
-import "bytes"
-
 type ConstantInfo interface {
 	readInfo(read *ClassReader)
 }
@@ -94,4 +92,3 @@ func newConstantInfo(tag uint8, cp ConstantPool) ConstantInfo {
 		panic("java.lang.ClassFormatError: constant pool tag!")
 	}
 }
-
