@@ -32,7 +32,6 @@ func readAttribute(reader *ClassReader, cp ConstantPool) AttributeInfo {
 	return attrInfo
 }
 
-
 // attr Info
 func newAttributeInfo(attrName string, attrLen uint32, cp ConstantPool) AttributeInfo {
 	switch attrName {

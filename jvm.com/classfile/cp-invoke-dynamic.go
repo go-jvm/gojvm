@@ -15,7 +15,7 @@ func (self *ConstantInvokeDynamicInfo) NameAndType() (string, string) {
 	return self.cp.getNameAndType(self.nameAndTypeIndex)
 }
 
-func (self *ConstantInvokeDynamicInfo) BootstrapMethodInfo()(uint16, []uint16) {
+func (self *ConstantInvokeDynamicInfo) BootstrapMethodInfo() (uint16, []uint16) {
 	bmAttr := self.cp.cf.BootstrapMethodsAttribute()
 
 	bm := bmAttr.bootstrapMethods[self.bootstrapMethodAttrIndex]
