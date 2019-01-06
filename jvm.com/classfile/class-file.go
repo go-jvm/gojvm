@@ -51,13 +51,19 @@ func (self *ClassFile) read(reader *ClassReader) {
 
 	self.interfaces = reader.readUint16s()
 
-	self.fields = readerMembers(reader, self.constantPool)
+	self.fields = readMembers(reader, self.constantPool)
+
+	self.methods = readMembers(reader, self.constantPool)
 
 	self.attributes = readAttributes(reader, self.constantPool)
 }
 
 func (self *ClassFile) MajorVersion() uint16 {
 	return self.majorVersion
+}
+
+func (self *ClassFile) MinorVersion() uint16 {
+	return self.minorVersion
 }
 
 func (self *ClassFile) ClassName() string {
@@ -76,7 +82,7 @@ func (self *ClassFile) SuperClassName() string {
 func (self *ClassFile) InterfaceNames() []string {
 	interfaceNames := make([]string, len(self.interfaces))
 
-	for i, cpIndex := range interfaceNames {
+	for i, cpIndex := range self.interfaces {
 		interfaceNames[i] = self.constantPool.getClassName(cpIndex)
 	}
 
@@ -107,4 +113,20 @@ func (self *ClassFile) readAndCheckVersion(reader *ClassReader) {
 	}
 
 	panic("java.lang.UnsupportedClassVersionError!")
+}
+
+func (self *ClassFile) Methods() []*MemberInfo {
+	return self.methods
+}
+
+func (self *ClassFile) Fields() []*MemberInfo {
+	return self.fields
+}
+
+func (self *ClassFile) AccessFlags() uint16 {
+	return self.accessFlags
+}
+
+func (self *ClassFile) ConstantPoll() ConstantPool {
+	return self.constantPool
 }

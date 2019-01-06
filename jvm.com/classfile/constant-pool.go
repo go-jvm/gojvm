@@ -25,7 +25,7 @@ func readConstantPool(reader *ClassReader) ConstantPool {
 }
 
 func (self ConstantPool) getConstantInfo(index uint16) ConstantInfo {
-	if cpInfo := self[index]; cpinfo != nil {
+	if cpInfo := self[index]; cpInfo != nil {
 		return cpInfo
 	}
 
@@ -35,17 +35,19 @@ func (self ConstantPool) getConstantInfo(index uint16) ConstantInfo {
 func (self *ConstantPool) getNameAndType(index uint16) (string, string) {
 	ntInfo := self.getConstantInfo(index).(*ConstantNameAndTypeInfo)
 	name := self.getUtf8(ntInfo.nameIndex)
-	_type := self.getUtf8(ngInfo.descriptorIndex)
+	_type := self.getUtf8(ntInfo.descriptorIndex)
 
 	return name, _type
 }
 
 func (self *ConstantPool) getClassName(index uint16) string {
+	classInfo := self.getConstantInfo(index).(*ConstantClassInfo)
+
 	return self.getUtf8(classInfo.nameIndex)
 }
 
 func (self *ConstantPool) getUtf8(index uint16) string {
-	utf8Info := self.getContantInfo(index).(*ConstantUtf8Info)
+	utf8Info := self.getConstantInfo(index).(*ConstantUtf8Info)
 
 	return utf8Info.str
 }
@@ -53,7 +55,7 @@ func (self *ConstantPool) getUtf8(index uint16) string {
 func readConstantInfo(reader *ClassReader, cp ConstantPool) ConstantInfo {
 	tag := reader.readUint8()
 	c := newConstantInfo(tag, cp)
-	reader.readInfo(reader)
+	c.readInfo(reader)
 
 	return c
 }
@@ -62,12 +64,12 @@ func newConstantInfo(tag uint8, cp ConstantPool) ConstantInfo {
 	switch tag {
 	case CONSTANT_Integer:
 		return &ConstantIntegerInfo{}
-	case CONSTANT_FLOAD:
+	case CONSTANT_Float:
 		return &ConstantFloatInfo{}
-	case CONSTANT_lONG:
+	case CONSTANT_Long:
 		return &ConstantLongInfo{}
-	case CONSTANT_DOUBLE:
-		return &ConstantDouble{}
+	case CONSTANT_Double:
+		return &ConstantDoubleInfo{}
 	case CONSTANT_Utf8:
 		return &ConstantUft8Info{}
 	case CONSTANT_String:

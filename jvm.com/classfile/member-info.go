@@ -8,7 +8,7 @@ type MemberInfo struct {
 	attributes      []AttributeInfo
 }
 
-func readMemberInfo(reader *ClassReader, cp ConstantPool) []*MemberInfo {
+func readMembers(reader *ClassReader, cp ConstantPool) []*MemberInfo {
 	memberCount := reader.readUint16()
 	members := make([]*MemberInfo, memberCount)
 
