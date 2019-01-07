@@ -6,6 +6,18 @@ type ConstantMemberrefInfo struct {
 	nameAndTypeIndex uint16
 }
 
+type ConstantFieldrefInfo struct {
+	ConstantMemberrefInfo
+}
+
+type ConstantMethodrefInfo struct {
+	ConstantMemberrefInfo
+}
+
+type ConstantInterfaceMethodrefInfo struct {
+	ConstantMemberrefInfo
+}
+
 func (self *ConstantMemberrefInfo) readInfo(reader *ClassReader) {
 	self.classIndex = reader.readUint16()
 	self.nameAndTypeIndex = reader.readUint16()

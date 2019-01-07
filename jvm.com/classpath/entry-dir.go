@@ -6,7 +6,6 @@ import (
 )
 
 
-// 2.3.2
 type DirEntry struct {
 	absDir string
 }
@@ -21,7 +20,7 @@ func newDirEntry(path string) *DirEntry {
 	return  &DirEntry{absDir}
 }
 
-func (self *DirEntry) readsClass(className string) ([]byte, *DirEntry, error) {
+func (self *DirEntry) readClass(className string) ([]byte, Entry, error) {
 	fileName := filepath.Join(self.absDir, className)
 
 	data, err := ioutil.ReadFile(fileName)
