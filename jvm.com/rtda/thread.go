@@ -5,10 +5,6 @@ type Thread struct {
 	stack *Stack
 }
 
-type Frame struct {
-
-}
-
 func NewThread() *Thread {
 	return &Thread{
 		stack: newStack(1024),
