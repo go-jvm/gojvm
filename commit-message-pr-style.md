@@ -1,6 +1,6 @@
 # Commit Message and Pull Request Style
 
-This document describes the commit message and Pull Request style applied to all PingCAP repositories. When you are to commit, be sure to follow the style to write a good commit message, a good Pull Request title and description.
+This document describes the commit message and Pull Request style applied to all gojvm repositories. When you are to commit, be sure to follow the style to write a good commit message, a good Pull Request title and description.
 
 ## Why a good commit message matters
 
