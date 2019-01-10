@@ -9,4 +9,3 @@ func newLocalVars(maxLocals uint) LocalVars {
 
 	return nil
 }
-
