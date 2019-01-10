@@ -11,7 +11,7 @@ The java virtual machine implemented by golang, refer to the go.jvm project, and
 
 # commit message and pr style
 * [docs-en](https://github.com/go-jvm/gojvm/blob/master/docs/commit-message-pr-style.md)
-* [docs-en](https://github.com/go-jvm/docs-cn/blob/master/commit-message-pr-style.md)
+* [docs-cn](https://github.com/go-jvm/docs-cn/blob/master/commit-message-pr-style.md)
 
 
 # License
